@@ -6,18 +6,11 @@ from listings.models import Listing
 # Create your views here.
 def hello(request):
     bands=Band.objects.all()
-    return HttpResponse(f"""
-    <h1>Hello Django!</h1>
-    <p>My favorites groups are: </p>
-    <ul>
-    <li>{bands[0].name}</li>
-    <li>{bands[1].name}</li>
-    <li>{bands[2].name}</li>
-    </ul>
- """)
+    return render(request, 'listings/hello.html', {'bands': bands})
+    
 
 def about(request):
-    return HttpResponse('<h1>A propos</h1> <p>Nous aimons merch!</p>')
+    return HttpResponse('<h1>About us</h1> <p>We love merch!</p>')
 
 def listings(request):
     listings=Listing.objects.all()
