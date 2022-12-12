@@ -6,16 +6,17 @@
     </head>
     <body>
         <h1>Hello Django</h1>
-        <p>My favorite groups are: </p>
-        <ul>
-            {% for band in bands %} 
-            <li>{{ band.name}}</li>
-            {% endfor %}
-        </ul>
-        <!-- <ul>
-            <li>{{bands.0.name}}</li>
-            <li>{{bands.1.name}}</li>
-            <li>{{bands.2.name}}</li>
-        </ul> -->
+        <p> J'ai {{ bands|length }} groupes preferes. </p>
+        <p>
+            J'ai 
+            {% if bands|length < 5 %} 
+                peu de
+            {% elif bands|length < 10 %}
+                quelques
+            {% else %}
+                beaucoup de 
+            {% endif %}
+                groupes preferes.
+        </p>
     </body>
 </html>
