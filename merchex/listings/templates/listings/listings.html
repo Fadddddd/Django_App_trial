@@ -6,9 +6,10 @@
     <h2> List of the concerts :</h2>
         <p>Coming soon...</p>
             <ul>
-                <li>{listings[0].title}</li>
-                <li>{listings[1].title}</li>
-                <li>{listings[2].title}</li>
+                {% for listing in listings %}
+                <li>{{listings.title}}</li>
+                {% endfor %}
+               
             </ul>    
 </body>
 </html>
