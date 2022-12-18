@@ -16,6 +16,9 @@ class Band(models.Model):
     active = models.fields.BooleanField(default=True)
     official_homepage = models.fields.URLField(null=True, blank=True)
 
+    def __str__(self):  #this way it shows the name of the band and not the ID
+            return f'{self.name}'
+            
 class Listing(models.Model):
     
     class Type(models.TextChoices):
